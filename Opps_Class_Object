@@ -1,0 +1,49 @@
+class Atm:
+
+    def __init__(self):
+        self.pin = ""
+        self.balance = ''
+
+    def menu(self):
+        user_input = input(""" 
+        Hi How can I help you?
+        1.press 1 for create pin
+        2.press 2 for change pin
+        3.press 3 check balance
+        4.press 4 for withdraw
+        5.Anything else to exit
+
+        """
+       )
+
+        if user_input == 1:
+            self.create_pin()
+        elif user_input == 2:
+            self.change_pin()
+        
+        else:
+            exit()
+
+
+    
+
+    def create_pin(self):
+        user_pin = input(print("Create your pin: "))
+        self.pin = user_pin
+        self.menu()
+
+    def change_pin(self):
+
+        old_pin = int(input("Enter your old pin"))
+        if old_pin == self.pin:
+            new_pin = int(input("Enter a new pin"))
+            self.pin == new_pin
+            print("Pin Changed Successfully!")
+        else:
+            print("Your pin is wrong")
+            self.change_pin()
+
+
+obj = Atm()
+obj.create_pin()
+obj.change_pin()
